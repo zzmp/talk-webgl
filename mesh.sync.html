@@ -18,8 +18,7 @@
 </style>
 <canvas></canvas>
 <script>
-var canvas = document.querySelector('canvas');
-
+// prep the video element
 var video = document.createElement('video');
 video.crossOrigin = 'anonymous';
 video.autoplay = true;
@@ -28,7 +27,7 @@ video.setAttribute('playsinline', '');
 video.oncanplay = oncanplay.bind(video);
 video.onended = function() { video.play(); }
 
-
+// download the video (AJAX)
 var hls = new Hls();
 hls.attachMedia(video);
 hls.on(Hls.Events.MEDIA_ATTACHED, function() {
@@ -37,9 +36,12 @@ hls.on(Hls.Events.MEDIA_ATTACHED, function() {
 
 var state = {}
 
+// create the geometry that the video will texture
 state.geometry = new THREE.SphereGeometry(2, 128, 128);
 state.scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+// create the renderer
+var canvas = document.querySelector('canvas');
 var renderer = new THREE.WebGLRenderer({canvas: canvas});
 
 var theta = 0;
@@ -53,8 +55,9 @@ state.animate = function() {
 function oncanplay() {
   this.oncanplay = null;
 
+  // transfer the video texture to GL
   var texture = new THREE.VideoTexture(this);
-  // only render the backside, as the camera is contained in the sphere
+  // render the backside, as the camera is contained in the sphere
   var material = new THREE.MeshBasicMaterial({map: texture, side: THREE.BackSide});
   var mesh = new THREE.Mesh(state.geometry, material);
   state.scene.add(mesh);
