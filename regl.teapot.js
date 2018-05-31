@@ -2,6 +2,7 @@ var canvas = document.querySelector('canvas');
 var regl = createREGL({canvas: canvas});
 
 var draw = regl({
+  // vertex shader
   vert: `
     precision mediump float;
     attribute vec3 position;
@@ -10,18 +11,19 @@ var draw = regl({
       gl_Position = projection * view * model * vec4(position, 1);
     }`,
 
+  // fragment shader
   frag: `
     precision mediump float;
     void main() {
       gl_FragColor = vec4(1, 1, 1, 1);
     }`,
 
-  // this converts the vertices of the mesh into the position attribute
+  // convert the vertices of the mesh into the position attribute
   attributes: {
     position: teapot.positions
   },
 
-  // and this converts the faces fo the mesh into elements
+  // convert the faces fo the mesh into elements (i.e. triangles)
   elements: teapot.cells,
 
   uniforms: {
@@ -33,15 +35,16 @@ var draw = regl({
             [0, 2.5, 0],
             [0, 1, 0])
     },
-    projection: ({viewportWidth, viewportHeight}) =>
+    projection: () => {
       mat4.perspective([],
           Math.PI / 4,
-          1, //viewportWidth / viewportHeight,
+          1,
           0.01,
           1000)
   }
 })
 
+// regl provides an abstraction over requestAnimationFrame
 regl.frame(() => {
   regl.clear({
     depth: 1,

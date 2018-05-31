@@ -111,7 +111,7 @@ GPUs are hardward specialized for rasterization of triangle meshes.
 #### Babylon.js
 - Game framework (out of scope)
 #### A-Frame
-- AR framework by [Mozilla](https://www.mozilla.org/) (out of scope)
+- VR framework by [Mozilla](https://www.mozilla.org/) (out of scope)
 
 ## Challenges
 ### Complexity
