@@ -5,12 +5,12 @@
 
 ## What is 3D?
 ### Ray Tracing
-![Ray casting from the camera][https://www.cs.unc.edu/~rademach/xroads-RT/RTfigs-jpg/RTfigure6.jpg]
+![Ray casting from the camera](https://www.cs.unc.edu/~rademach/xroads-RT/RTfigs-jpg/RTfigure6.jpg)
 Ray tracing follows each pixel's reflections and refractions from the camera.
 It is expensive. It is usually performed on the CPU because of frequent memory lookups. (This may not be true anymore.)
 
 ### Rasterization
-![Rasterization of a triangle][https://www.scratchapixel.com/images/upload/rasterization/rasterization-triangle1.png]
+![Rasterization of a triangle](https://www.scratchapixel.com/images/upload/rasterization/rasterization-triangle1.png)
 Rasterization converts objects to 2D, retaining color/depth/transparency.
 It "cheats" a lot, because it does not directly model a physical system. This allows for computational speedups.
 
@@ -123,10 +123,10 @@ GPUs are hardward specialized for rasterization of triangle meshes.
 - Network Cost
 - GPU Tx Cost
 
-![Synchronous load - note the idle time][TODO]
+![Synchronous load - note the idle time](./performance.sync.png))
 [Let's load a mesh naively!](./mesh.sync.html)
 
-![Asynchronous load][TODO]
+![Asynchronous load](./performance.async.png))
 [Let's load the texture while transferring the geometry to the GPU!](./mesh.async.html).
 
 ##### Other strategies
