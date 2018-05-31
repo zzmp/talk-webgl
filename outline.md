@@ -90,7 +90,7 @@ GPUs are hardward specialized for rasterization of triangle meshes.
   - Includes a GLTF Reader/Writer
 
 [Let's make a teapot!](./index.html)
-<!-- TODO: Copy ./teapot.three.js into the console for this demo -->
+<!-- Copy ./teapot.three.js into the console for this demo -->
 
 ### [👑 regl](http://regl.party/)
 > [you can't improve what's already perfect 😎](https://gitter.im/mikolalysenko/regl?at=59826511614889d475132d85)
@@ -105,7 +105,7 @@ GPUs are hardward specialized for rasterization of triangle meshes.
 - Faster, but requires more technical knowledge / effort
 
 [Let's make a teapot!](./index.html)
-<!-- TODO: Copy ./teapot.regl.js into the console for this demo -->
+<!-- Copy ./teapot.regl.js into the console for this demo -->
 
 ### etc.
 #### Babylon.js
